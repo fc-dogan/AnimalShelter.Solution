@@ -15,28 +15,28 @@ namespace AnimalShelter.Controllers
       _db = db;
     }
 
-    public ActionResult Index() 
+    public ActionResult Index(string sortOrder) 
     {
       //List<Animal> model = _db.Animals.ToList();
-      // ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-      // ViewBag.TypeSortParm = sortOrder == "Type" ? "type_desc" : "Type";
+      ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+      ViewBag.TypeSortParm = sortOrder == "Type" ? "type_desc" : "Type";
       var animals = from a in _db.Animals
               select a;
-      // switch (sortOrder)
-      // {
-      //   case "name_desc":
-      //     animals = animals.OrderByDescending(a => a.Name);
-      //     break;
-      //   case "Type":
-      //     animals = animals.OrderBy(a => a.Type);
-      //     break;
-      //   case "type_desc":
-      //     animals = animals.OrderByDescending(a => a.Type);
-      //     break;    
-      //   default:
+      switch (sortOrder)
+      {
+        case "name_desc":
+          animals = animals.OrderByDescending(a => a.Name);
+          break;
+        case "Type":
           animals = animals.OrderBy(a => a.Type);
-      //     break;
-      // }
+          break;
+        case "type_desc":
+          animals = animals.OrderByDescending(a => a.Type);
+          break;    
+        default:
+          animals = animals.OrderBy(a => a.Type);
+          break;
+      }
       return View(animals.ToList());
     }
 
