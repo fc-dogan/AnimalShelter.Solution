@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using ToDoList.Models;
+using AnimalShelter.Models;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -20,17 +20,17 @@ namespace AnimalShelter.Controllers
       return View(model);
     }
 
-    public ActionResult Create()
-    {
-      return View();
-    }
+    // public ActionResult Create()
+    // {
+    //   return View();
+    // }
 
-    [HttpPost]
-    public ActionResult Create(Animal animal)
-    {
-      _db.Animals.Add(animal);
-      _db.SaveChanges();
-      return RedirectToAction("Index");
-    }
+    // [HttpPost]
+    // public ActionResult Create(Animal animal)
+    // {
+    //   _db.Animals.Add(animal);
+    //   _db.SaveChanges();
+    //   return RedirectToAction("Index");
+    // }
   }
 }
