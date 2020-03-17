@@ -19,19 +19,19 @@ namespace AnimalShelter.Controllers
     {
       //List<Animal> model = _db.Animals.ToList();
       ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-      ViewBag.TypeSortParm = sortOrder == "Type" ? "type_desc" : "Type";
+      ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
       var animals = from a in _db.Animals
               select a;
       switch (sortOrder)
       {
         case "name_desc":
-          animals = animals.OrderByDescending(a => a.Name);
+          animals = animals.OrderBy(a => a.Name);
           break;
-        case "Type":
-          animals = animals.OrderBy(a => a.Type);
+        case "Date":
+          animals = animals.OrderBy(a => a.Date);
           break;
-        case "type_desc":
-          animals = animals.OrderByDescending(a => a.Type);
+        case "date_desc":
+          animals = animals.OrderByDescending(a => a.Date);
           break;    
         default:
           animals = animals.OrderBy(a => a.Type);
