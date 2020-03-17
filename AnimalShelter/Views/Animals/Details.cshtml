@@ -1,1 +1,13 @@
-<p>Detail Page</p>
+@{
+  Layout = "_Layout";
+}
+@model AnimalShelter.Models.Animal
+<h2>Animal Details</h2>
+
+
+<h4>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h4>
+<h5>@Html.DisplayNameFor(model => model.Gender): @Html.DisplayFor(model => model.Gender)</h5>
+<h5>@Html.DisplayNameFor(model => model.Date): @Html.DisplayFor(model => model.Date)</h5>
+<h5>@Html.DisplayNameFor(model => model.Breed): @Html.DisplayFor(model => model.Breed)</h5>
+
+<p>@Html.ActionLink("Back to animal list", "Index")</p>
