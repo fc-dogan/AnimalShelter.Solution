@@ -17,7 +17,6 @@
   <li>@Html.ActionLink($"{animal.Type} : {animal.Name}", "Details", new { id = animal.AnimalId })</li>
 }
 
-<p>@Html.ActionLink("Add new animal", "Create")</p>
-  
+<p>@Html.ActionLink("Add new animal", "Create")</p>  
 <p>@Html.ActionLink("Sort by Name", "Index", new { sortOrder = ViewBag.NameSortParm })</p>
 <p>@Html.ActionLink("Sort by Date", "Index", new { sortOrder = ViewBag.DateSortParm })</p>
