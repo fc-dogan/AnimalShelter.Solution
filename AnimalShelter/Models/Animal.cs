@@ -9,6 +9,6 @@ namespace AnimalShelter.Models
     public string Name  { get; set; }
     public string Gender  { get; set; }
     public DateTime Date  { get; set; }
-    public string Bread  { get; set; }
+    public string Breed  { get; set; }
   }
 }
