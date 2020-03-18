@@ -34,7 +34,7 @@ namespace AnimalShelter.Controllers
           animals = animals.OrderByDescending(a => a.Date);
           break;    
         default:
-          animals = animals.OrderBy(a => a.Type);
+          animals = animals.OrderBy(a => a.AnimalType);
           break;
       }
       return View(animals.ToList());

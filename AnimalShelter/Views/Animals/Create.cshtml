@@ -2,19 +2,23 @@
   Layout = "_Layout";
 }
 
+@using AnimalShelter.Models;
 @model AnimalShelter.Models.Animal
 
 <h4>Add a new animal</h4>
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(model => model.Type)
-  @Html.TextBoxFor(model => model.Type,  new { @class = "form-control"})
+  @Html.LabelFor(model => model.AnimalType)
+  @Html.DropDownListFor(model => model.AnimalType,
+                      new SelectList(Enum.GetValues(typeof(PetType))),
+                      "Select Type",
+                      new { @class = "form-control"})
   @Html.LabelFor(model => model.Name)
   @Html.TextBoxFor(model => model.Name,  new { @class = "form-control"})
   @Html.LabelFor(model => model.Gender)
   @Html.TextBoxFor(model => model.Gender,  new { @class = "form-control"})
   @Html.LabelFor(model => model.Date)
-  @Html.EditorFor(model => model.Date, new { @type = "date" },  new { @class = "form-control"})
+  @Html.EditorFor(model => model.Date, new { @type = "date" })
   @Html.LabelFor(model => model.Breed)
   @Html.TextBoxFor(model => model.Breed, new { @class = "form-control"}) 
   <input type="submit" value="Add new animal" />
